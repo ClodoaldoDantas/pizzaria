@@ -15,4 +15,9 @@ export class PizzasController {
 
     return response.json(pizza);
   }
+
+  async findAll(request: Request, response: Response) {
+    const pizzas = await PizzaModel.find();
+    return response.json(pizzas);
+  }
 }

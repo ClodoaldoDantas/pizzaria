@@ -5,5 +5,6 @@ const routes = Router();
 const pizzasController = new PizzasController();
 
 routes.post('/pizzas', pizzasController.create);
+routes.get('/pizzas', pizzasController.findAll);
 
 export { routes };
