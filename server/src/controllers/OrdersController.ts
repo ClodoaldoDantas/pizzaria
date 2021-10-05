@@ -7,6 +7,7 @@ export class OrdersController {
     const order = await OrderModel.create({ item, quantity });
     await order.populate('item');
 
+    request.io.emit('newOrder', order);
     return response.json(order);
   }
 
@@ -31,6 +32,7 @@ export class OrdersController {
       { new: true }
     ).populate('item');
 
+    request.io.emit('statusChange', order);
     return response.json(order);
   }
 }
