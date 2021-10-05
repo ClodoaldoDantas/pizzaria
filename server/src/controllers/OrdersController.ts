@@ -11,7 +11,13 @@ export class OrdersController {
   }
 
   async findAll(request: Request, response: Response) {
-    const orders = await OrderModel.find();
+    const orders = await OrderModel.find().populate('item');
     return response.json(orders);
+  }
+
+  async findById(request: Request, response: Response) {
+    const { id } = request.params;
+    const order = await OrderModel.findById(id).populate('item');
+    return response.json(order);
   }
 }
