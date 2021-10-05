@@ -13,5 +13,6 @@ routes.put('/pizzas/:id', pizzasController.update);
 routes.delete('/pizzas/:id', pizzasController.delete);
 
 routes.post('/orders', ordersController.create);
+routes.get('/orders', ordersController.findAll);
 
 export { routes };
