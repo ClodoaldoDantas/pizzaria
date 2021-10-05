@@ -1,9 +1,9 @@
 import { Router } from 'express';
+import { PizzasController } from '../controllers/PizzasController';
 
 const routes = Router();
+const pizzasController = new PizzasController();
 
-routes.get('/pizzas', (req, res) => {
-  return res.send('ok');
-});
+routes.post('/pizzas', pizzasController.create);
 
 export { routes };
