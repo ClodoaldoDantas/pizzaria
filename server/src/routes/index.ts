@@ -15,5 +15,6 @@ routes.delete('/pizzas/:id', pizzasController.delete);
 routes.post('/orders', ordersController.create);
 routes.get('/orders', ordersController.findAll);
 routes.get('/orders/:id', ordersController.findById);
+routes.patch('/orders/:id', ordersController.updateStatus);
 
 export { routes };

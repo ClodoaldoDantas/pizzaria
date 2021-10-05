@@ -20,4 +20,17 @@ export class OrdersController {
     const order = await OrderModel.findById(id).populate('item');
     return response.json(order);
   }
+
+  async updateStatus(request: Request, response: Response) {
+    const { id } = request.params;
+    const { status } = request.body;
+
+    const order = await OrderModel.findByIdAndUpdate(
+      id,
+      { status },
+      { new: true }
+    ).populate('item');
+
+    return response.json(order);
+  }
 }
