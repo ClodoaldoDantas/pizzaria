@@ -3,7 +3,7 @@ import { PizzaModel } from '../models/Pizza';
 
 export class PizzasController {
   async create(request: Request, response: Response) {
-    const { name, description, price, active, image } = request.body;
+    const { name, description, price, active = true, image } = request.body;
 
     const pizza = await PizzaModel.create({
       name,
