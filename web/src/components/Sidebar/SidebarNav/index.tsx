@@ -1,5 +1,4 @@
-import cx from 'classnames';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   MdLocalPizza,
   MdOutlineDashboard,
@@ -7,6 +6,7 @@ import {
 } from 'react-icons/md';
 
 import { FaClipboardList } from 'react-icons/fa';
+import { ActiveLink } from '../../ActiveLink';
 import './styles.scss';
 
 const navItems = [
@@ -28,8 +28,6 @@ const navItems = [
 ];
 
 export function SidebarNav() {
-  const { pathname } = useLocation();
-
   return (
     <>
       <Link to="/" className="text-white text-decoration-none logo">
@@ -40,17 +38,14 @@ export function SidebarNav() {
       <hr />
 
       <ul className="nav nav-pills flex-column">
-        {navItems.map(({ label, link, icon }) => (
-          <li key={label} className="nav-item">
-            <Link
-              to={link}
-              className={cx('nav-link', 'text-white', {
-                active: link === pathname,
-              })}
-            >
-              {icon}
-              <span className="ms-2">{label}</span>
-            </Link>
+        {navItems.map(navItem => (
+          <li key={navItem.label} className="nav-item">
+            <ActiveLink
+              label={navItem.label}
+              link={navItem.link}
+              icon={navItem.icon}
+              shouldMatchExactHref={navItem.label === 'Dashboard'}
+            />
           </li>
         ))}
       </ul>
