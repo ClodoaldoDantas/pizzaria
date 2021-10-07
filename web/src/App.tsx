@@ -7,7 +7,10 @@ export function App() {
     <BrowserRouter>
       <div className="wrapper">
         <Sidebar />
-        <Routes />
+
+        <main className="container-fluid">
+          <Routes />
+        </main>
       </div>
     </BrowserRouter>
   );

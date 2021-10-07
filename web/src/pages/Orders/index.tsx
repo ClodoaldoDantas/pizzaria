@@ -1,3 +1,9 @@
+import { PageHeader } from '../../components/PageHeader';
+
 export function Orders() {
-  return <p>Orders</p>;
+  return (
+    <section id="page-orders">
+      <PageHeader title="Pedidos" />
+    </section>
+  );
 }
