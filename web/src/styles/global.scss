@@ -4,3 +4,9 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 
 /* import bootstrap to set changes */
 @import '~bootstrap/scss/bootstrap';
+
+/* custom styles */
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
