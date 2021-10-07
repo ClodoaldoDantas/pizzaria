@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { PageHeader } from '../../components/PageHeader';
 
-export function AddProduct() {
+export function EditProduct() {
   const [active, setActive] = useState(true);
 
   return (
     <section id="page-products-add">
-      <PageHeader title="Adicionar Produto" />
+      <PageHeader title="Editar Produto" />
 
       <Form>
         <Form.Group className="mb-3">

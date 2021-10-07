@@ -21,6 +21,10 @@ export function Products() {
     history.push('/products/new');
   }
 
+  function navigateToEditProduct(productId: string) {
+    history.push(`/products/${productId}`);
+  }
+
   return (
     <section id="page-products">
       <PageHeader title="Produtos" />
@@ -29,7 +33,7 @@ export function Products() {
         Adicionar Produto
       </Button>
 
-      <TableProducts products={products} />
+      <TableProducts onEdit={navigateToEditProduct} products={products} />
     </section>
   );
 }
