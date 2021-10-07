@@ -10,3 +10,8 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
   display: flex;
   height: 100vh;
 }
+
+#main-content {
+  height: 100vh;
+  overflow: auto;
+}

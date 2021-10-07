@@ -8,7 +8,7 @@ export function App() {
       <div className="wrapper">
         <Sidebar />
 
-        <main className="container-fluid">
+        <main id="main-content" className="container-fluid">
           <Routes />
         </main>
       </div>
