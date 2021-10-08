@@ -5,6 +5,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import { PageHeader } from '../../components/PageHeader';
+import { api } from '../../services/api';
+import { useHistory } from 'react-router-dom';
+import { Toast } from '../../utils/swal';
 
 type IFormInputs = {
   image: string;
@@ -21,6 +24,7 @@ const schema = yup.object({
 });
 
 export function AddProduct() {
+  const history = useHistory();
   const [active, setActive] = useState(true);
   const {
     register,
@@ -30,8 +34,14 @@ export function AddProduct() {
     resolver: yupResolver(schema),
   });
 
-  function onSubmit(data: IFormInputs) {
-    console.log(data);
+  async function onSubmit(data: IFormInputs) {
+    await api.post('pizzas', { ...data, active });
+    history.push('/products');
+
+    await Toast.fire({
+      icon: 'success',
+      title: 'Produto adicionado com sucesso',
+    });
   }
 
   return (

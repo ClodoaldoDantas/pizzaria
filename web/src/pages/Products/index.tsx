@@ -6,6 +6,7 @@ import { api } from '../../services/api';
 
 import { PageHeader } from '../../components/PageHeader';
 import { TableProducts } from './TableProducts';
+import { ConfirmDialog, Toast } from '../../utils/swal';
 
 export function Products() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -25,6 +26,22 @@ export function Products() {
     history.push(`/products/${productId}`);
   }
 
+  async function deleteProduct(productId: string) {
+    const canDelete = await ConfirmDialog.fire({
+      text: 'Deseja realmente deletar o produto ?',
+    });
+
+    if (canDelete.value) {
+      await api.delete(`/pizzas/${productId}`);
+      setProducts(products.filter(product => product._id !== productId));
+
+      await Toast.fire({
+        icon: 'success',
+        title: 'Produto removido com sucesso',
+      });
+    }
+  }
+
   return (
     <section id="page-products">
       <PageHeader title="Produtos" />
@@ -33,7 +50,11 @@ export function Products() {
         Adicionar Produto
       </Button>
 
-      <TableProducts onEdit={navigateToEditProduct} products={products} />
+      <TableProducts
+        onEdit={navigateToEditProduct}
+        onDelete={deleteProduct}
+        products={products}
+      />
     </section>
   );
 }

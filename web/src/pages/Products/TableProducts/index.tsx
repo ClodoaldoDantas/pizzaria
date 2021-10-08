@@ -7,9 +7,14 @@ import './styles.scss';
 type TableProductsProps = {
   products: Product[];
   onEdit: (productId: string) => void;
+  onDelete: (productId: string) => void;
 };
 
-export function TableProducts({ products, onEdit }: TableProductsProps) {
+export function TableProducts({
+  products,
+  onEdit,
+  onDelete,
+}: TableProductsProps) {
   return (
     <Table striped bordered>
       <thead>
@@ -57,7 +62,11 @@ export function TableProducts({ products, onEdit }: TableProductsProps) {
                   <MdEdit size={18} />
                 </Button>
 
-                <Button variant="danger" size="sm">
+                <Button
+                  onClick={() => onDelete(product._id)}
+                  variant="danger"
+                  size="sm"
+                >
                   <MdDelete size={18} />
                 </Button>
               </div>
