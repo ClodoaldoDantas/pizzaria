@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { io } from 'socket.io-client';
 import { PageHeader } from '../../components/PageHeader';
 import { Order } from '../../interfaces/Order';
 import { api } from '../../services/api';
+import { Toast } from '../../utils/swal';
 import { TableOrders } from './TableOrders';
 
 export function Orders() {
@@ -12,6 +14,18 @@ export function Orders() {
   useEffect(() => {
     api.get('orders').then(response => {
       setOrders(response.data);
+    });
+
+    const socket = io('http://localhost:3333');
+
+    socket.on('newOrder', async data => {
+      const newOrder: Order = data;
+      setOrders(prevState => [...prevState, newOrder]);
+
+      await Toast.fire({
+        icon: 'info',
+        title: 'Novo pedido adicionado',
+      });
     });
   }, []);
 
