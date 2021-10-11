@@ -1,26 +1,14 @@
 import { Badge, Table, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FaHammer } from 'react-icons/fa';
 import { Order } from '../../../interfaces/Order';
+import { orderLabels, orderVariants } from '../../../utils/orderUtils';
 
 type TableOrdersProps = {
   orders: Order[];
+  onNavigate: (orderId: string) => void;
 };
 
-const orderLabels = {
-  PENDING: 'Pendente',
-  PREPARING: 'Preparando',
-  DONE: 'Entregue',
-  CANCELLED: 'Cancelado',
-};
-
-const orderVariants = {
-  PENDING: 'secondary',
-  PREPARING: 'warning',
-  DONE: 'success',
-  CANCELLED: 'danger',
-};
-
-export function TableOrders({ orders }: TableOrdersProps) {
+export function TableOrders({ orders, onNavigate }: TableOrdersProps) {
   return (
     <Table striped bordered>
       <thead>
@@ -36,7 +24,7 @@ export function TableOrders({ orders }: TableOrdersProps) {
       <tbody>
         {orders.map(order => (
           <tr key={order._id}>
-            <td>#{order._id.substr(0, 15)}</td>
+            <td>#{order._id}</td>
             <td>{order.item.name}</td>
             <td>
               {new Intl.NumberFormat('pt-BR', {
@@ -54,7 +42,11 @@ export function TableOrders({ orders }: TableOrdersProps) {
                 placement="top-end"
                 overlay={<Tooltip>Detalhes do pedido</Tooltip>}
               >
-                <Button variant="primary" size="sm">
+                <Button
+                  onClick={() => onNavigate(order._id)}
+                  variant="primary"
+                  size="sm"
+                >
                   <FaHammer size={18} />
                 </Button>
               </OverlayTrigger>
