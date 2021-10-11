@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { io } from 'socket.io-client';
-import { PageHeader } from '../../components/PageHeader';
+
 import { Order } from '../../interfaces/Order';
 import { api } from '../../services/api';
 import { Toast } from '../../utils/swal';
+import { PageHeader } from '../../components/PageHeader';
 import { TableOrders } from './TableOrders';
 
 export function Orders() {
@@ -21,6 +22,8 @@ export function Orders() {
     socket.on('newOrder', async data => {
       const newOrder: Order = data;
       setOrders(prevState => [...prevState, newOrder]);
+
+      new Audio(`${process.env.PUBLIC_URL}/notification.mp3`).play();
 
       await Toast.fire({
         icon: 'info',
