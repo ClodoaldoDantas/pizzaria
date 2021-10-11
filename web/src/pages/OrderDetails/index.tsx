@@ -70,7 +70,7 @@ export function OrderDetails() {
               {new Intl.NumberFormat('pt-BR', {
                 style: 'currency',
                 currency: 'BRL',
-              }).format(order.item.price * order.quantity)}
+              }).format(order.total)}
             </span>
           </div>
 

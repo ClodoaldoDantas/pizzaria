@@ -21,7 +21,7 @@ export function Orders() {
 
     socket.on('newOrder', async data => {
       const newOrder: Order = data;
-      setOrders(prevState => [...prevState, newOrder]);
+      setOrders(prevState => [newOrder, ...prevState]);
 
       new Audio(`${process.env.PUBLIC_URL}/notification.mp3`).play();
 

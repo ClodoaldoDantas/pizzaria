@@ -1,18 +1,28 @@
 import { Request, Response } from 'express';
 import { OrderModel } from '../models/Order';
+import { PizzaModel } from '../models/Pizza';
 
 export class OrdersController {
   async create(request: Request, response: Response) {
-    const { item, quantity = 1, status = 'PENDING' } = request.body;
-    const order = await OrderModel.create({ item, quantity });
-    await order.populate('item');
+    const { item, quantity = 1 } = request.body;
+    const pizza = await PizzaModel.findById(item);
 
-    request.io.emit('newOrder', order);
-    return response.json(order);
+    if (pizza) {
+      const order = await OrderModel.create({
+        item,
+        quantity,
+        total: pizza.price * quantity,
+      });
+
+      await order.populate('item');
+
+      request.io.emit('newOrder', order);
+      return response.json(order);
+    }
   }
 
   async findAll(request: Request, response: Response) {
-    const orders = await OrderModel.find().populate('item');
+    const orders = await OrderModel.find().sort('-createdAt').populate('item');
     return response.json(orders);
   }
 

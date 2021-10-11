@@ -30,7 +30,7 @@ export function TableOrders({ orders, onNavigate }: TableOrdersProps) {
               {new Intl.NumberFormat('pt-BR', {
                 style: 'currency',
                 currency: 'BRL',
-              }).format(order.item.price * order.quantity)}
+              }).format(order.total)}
             </td>
             <td>
               <Badge bg={orderVariants[order.status]}>
