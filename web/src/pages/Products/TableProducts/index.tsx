@@ -51,7 +51,6 @@ export function TableProducts({
             >
               {product.active ? 'Sim' : 'Não'}
             </td>
-
             <td>
               <div className="actions">
                 <Button
