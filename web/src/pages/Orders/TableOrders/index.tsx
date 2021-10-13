@@ -1,4 +1,12 @@
-import { Badge, Table, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import {
+  Badge,
+  Table,
+  Button,
+  OverlayTrigger,
+  Tooltip,
+  Spinner,
+} from 'react-bootstrap';
+
 import { FaHammer } from 'react-icons/fa';
 import { Order } from '../../../interfaces/Order';
 import { orderLabels, orderVariants } from '../../../utils/orderUtils';
@@ -24,7 +32,17 @@ export function TableOrders({ orders, onNavigate }: TableOrdersProps) {
       <tbody>
         {orders.map(order => (
           <tr key={order._id}>
-            <td>#{order._id}</td>
+            <td>
+              #{order._id}
+              {order.status === 'PENDING' && (
+                <Spinner
+                  className="ms-2"
+                  variant="primary"
+                  animation="grow"
+                  size="sm"
+                />
+              )}
+            </td>
             <td>{order.item.name}</td>
             <td>
               {new Intl.NumberFormat('pt-BR', {
