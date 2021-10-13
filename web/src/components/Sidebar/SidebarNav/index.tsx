@@ -1,20 +1,11 @@
 import { Link } from 'react-router-dom';
-import {
-  MdLocalPizza,
-  MdOutlineDashboard,
-  MdRestaurantMenu,
-} from 'react-icons/md';
+import { MdLocalPizza, MdRestaurantMenu } from 'react-icons/md';
 
 import { FaClipboardList } from 'react-icons/fa';
 import { ActiveLink } from '../../ActiveLink';
 import './styles.scss';
 
 const navItems = [
-  {
-    label: 'Dashboard',
-    link: '/',
-    icon: <MdOutlineDashboard size={20} />,
-  },
   {
     label: 'Produtos',
     link: '/products',
