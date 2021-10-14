@@ -1,16 +1,39 @@
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Home } from '../pages/Home';
-import { Orders } from '../pages/Orders';
+import { HomeTabs } from './HomeTabs';
+import { Product } from '../pages/Product';
+import { colors } from '../theme/colors';
+import { fonts } from '../theme/fonts';
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export function Routes() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Orders" component={Orders} />
-    </Tab.Navigator>
+    <Stack.Navigator
+      screenOptions={() => ({
+        headerStyle: {
+          backgroundColor: colors.red_500,
+        },
+        headerTitleStyle: {
+          fontFamily: fonts.semiBold,
+          color: colors.white,
+        },
+        headerTintColor: colors.yellow_500,
+        headerTitleAlign: 'center',
+      })}
+    >
+      <Stack.Screen
+        name="Home"
+        component={HomeTabs}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        options={{ title: 'Produto' }}
+        name="Product"
+        component={Product}
+      />
+    </Stack.Navigator>
   );
 }
