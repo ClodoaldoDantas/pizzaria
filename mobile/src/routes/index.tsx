@@ -5,6 +5,7 @@ import { HomeTabs } from './HomeTabs';
 import { Product } from '../pages/Product';
 import { colors } from '../theme/colors';
 import { fonts } from '../theme/fonts';
+import { Order } from '../pages/Order';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,12 @@ export function Routes() {
         options={{ title: 'Produto' }}
         name="Product"
         component={Product}
+      />
+
+      <Stack.Screen
+        options={{ title: 'Pedido' }}
+        name="Order"
+        component={Order}
       />
     </Stack.Navigator>
   );

@@ -32,7 +32,7 @@ export function HomeTabs() {
       })}
     >
       <Tab.Screen
-        name="Home"
+        name="Menu"
         component={Home}
         options={{
           title: 'Cardápio',
