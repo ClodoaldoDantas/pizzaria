@@ -2,10 +2,11 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { HomeTabs } from './HomeTabs';
-import { Product } from '../pages/Product';
+import { Product } from '../screens/Product';
+import { Order } from '../screens/Order';
+
 import { colors } from '../theme/colors';
 import { fonts } from '../theme/fonts';
-import { Order } from '../pages/Order';
 import { getHeaderTitle } from '../utils/getHeaderTitle';
 
 const Stack = createStackNavigator();
@@ -14,6 +15,9 @@ export function Routes() {
   return (
     <Stack.Navigator
       screenOptions={() => ({
+        cardStyle: {
+          backgroundColor: colors.white,
+        },
         headerStyle: {
           backgroundColor: colors.red_500,
         },

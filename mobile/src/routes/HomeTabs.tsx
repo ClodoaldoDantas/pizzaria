@@ -2,8 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 
-import { Home } from '../pages/Home';
-import { Orders } from '../pages/Orders';
+import { Home } from '../screens/Home';
+import { Orders } from '../screens/Orders';
 import { colors } from '../theme/colors';
 import { fonts } from '../theme/fonts';
 
@@ -12,6 +12,9 @@ const Tab = createBottomTabNavigator();
 export function HomeTabs() {
   return (
     <Tab.Navigator
+      sceneContainerStyle={{
+        backgroundColor: colors.white,
+      }}
       tabBarOptions={{
         style: {
           height: 56,
