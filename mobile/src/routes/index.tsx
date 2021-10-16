@@ -1,13 +1,14 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { HomeTabs } from './HomeTabs';
 import { Product } from '../pages/Product';
 import { colors } from '../theme/colors';
 import { fonts } from '../theme/fonts';
 import { Order } from '../pages/Order';
+import { getHeaderTitle } from '../utils/getHeaderTitle';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 export function Routes() {
   return (
@@ -27,7 +28,9 @@ export function Routes() {
       <Stack.Screen
         name="Home"
         component={HomeTabs}
-        options={{ headerShown: false }}
+        options={({ route }) => ({
+          headerTitle: getHeaderTitle(route),
+        })}
       />
 
       <Stack.Screen

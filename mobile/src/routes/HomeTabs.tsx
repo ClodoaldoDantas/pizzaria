@@ -12,24 +12,22 @@ const Tab = createBottomTabNavigator();
 export function HomeTabs() {
   return (
     <Tab.Navigator
-      screenOptions={() => ({
-        headerStyle: {
-          backgroundColor: colors.red_500,
-        },
-        headerTitleStyle: { fontFamily: fonts.semiBold, color: colors.white },
-        headerTitleAlign: 'center',
-        tabBarActiveTintColor: colors.red_500,
-        tabBarInactiveTintColor: colors.gray_300,
-        tabBarLabelStyle: { fontFamily: fonts.medium, fontSize: 14 },
-        tabBarLabelPosition: 'beside-icon',
-        tabBarStyle: {
+      tabBarOptions={{
+        style: {
           height: 56,
           elevation: 0,
           shadowOpacity: 0,
           borderTopWidth: 1,
           borderTopColor: '#E4E4EB',
         },
-      })}
+        labelStyle: {
+          fontFamily: fonts.medium,
+          fontSize: 14,
+        },
+        labelPosition: 'beside-icon',
+        activeTintColor: colors.red_500,
+        inactiveTintColor: colors.gray_300,
+      }}
     >
       <Tab.Screen
         name="Menu"
