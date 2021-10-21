@@ -5,9 +5,10 @@ import { styles } from './styles';
 
 type CurrencyProps = {
   value: number;
+  fontSize?: number;
 };
 
-export function Currency({ value }: CurrencyProps) {
+export function Currency({ value, fontSize = 16 }: CurrencyProps) {
   return (
     <NumberFormat
       value={value}
@@ -15,7 +16,7 @@ export function Currency({ value }: CurrencyProps) {
       thousandSeparator={true}
       prefix={'R$'}
       renderText={formattedValue => (
-        <Text style={styles.price}>{formattedValue}</Text>
+        <Text style={[styles.price, { fontSize }]}>{formattedValue}</Text>
       )}
     />
   );
