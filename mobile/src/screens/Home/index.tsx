@@ -19,6 +19,7 @@ export function Home() {
       <FlatList
         data={products}
         keyExtractor={item => item._id}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => <ProductItem product={item} />}
       />
     </SafeAreaView>

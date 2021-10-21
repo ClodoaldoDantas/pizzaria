@@ -31,9 +31,4 @@ export const styles = StyleSheet.create({
     maxWidth: 180,
     marginBottom: 5,
   },
-  price: {
-    fontFamily: fonts.semiBold,
-    fontSize: 16,
-    color: colors.green_500,
-  },
 });
