@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Product } from '../../interfaces/Product';
+import { ProductType } from '../../interfaces/Product';
 import { Currency } from '../Currency';
 import { styles } from './styles';
 
 type ProductItemProps = {
-  product: Product;
+  product: ProductType;
 };
 
 export function ProductItem({ product }: ProductItemProps) {

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, FlatList } from 'react-native';
 import { api } from '../../services/api';
-import { Product } from '../../interfaces/Product';
+import { ProductType } from '../../interfaces/Product';
 import { ProductItem } from '../../components/ProductItem';
 import { styles } from './styles';
 
 export function Home() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<ProductType[]>([]);
 
   useEffect(() => {
     api.get('pizzas').then(response => {
-      setProducts(response.data as Product[]);
+      setProducts(response.data as ProductType[]);
     });
   }, []);
 
