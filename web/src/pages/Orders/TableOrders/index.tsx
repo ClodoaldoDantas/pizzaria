@@ -22,6 +22,14 @@ export function TableOrders({ orders, onNavigate }: TableOrdersProps) {
       </thead>
 
       <tbody>
+        {orders.length === 0 && (
+          <tr>
+            <td className="text-center" colSpan={5}>
+              Sem pedidos 🍕
+            </td>
+          </tr>
+        )}
+
         {orders.map(order => (
           <tr key={order._id}>
             <td>#{order._id}</td>

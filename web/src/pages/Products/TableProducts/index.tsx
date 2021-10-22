@@ -28,6 +28,14 @@ export function TableProducts({
       </thead>
 
       <tbody>
+        {products.length === 0 && (
+          <tr>
+            <td className="text-center" colSpan={5}>
+              Nenhum produto cadastrado 🍕
+            </td>
+          </tr>
+        )}
+
         {products.map(product => (
           <tr key={product._id}>
             <td className="product-image">
