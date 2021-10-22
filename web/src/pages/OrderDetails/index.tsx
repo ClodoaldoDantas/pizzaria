@@ -30,8 +30,9 @@ export function OrderDetails() {
   }
 
   async function updateStatus() {
-    await api.patch(`/orders/${params.id}`, { status });
-    history.push('/orders');
+    const response = await api.patch(`/orders/${params.id}`, { status });
+
+    setOrder(response.data as Order);
 
     await Toast.fire({
       icon: 'success',
