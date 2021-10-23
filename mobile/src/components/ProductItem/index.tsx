@@ -1,23 +1,17 @@
 import React from 'react';
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { ProductType } from '../../interfaces/Product';
 import { Currency } from '../Currency';
 import { styles } from './styles';
 
 type ProductItemProps = {
   product: ProductType;
+  onNavigate: (productId: string) => void;
 };
 
-export function ProductItem({ product }: ProductItemProps) {
-  const navigation = useNavigation();
-
-  function handleNavigate() {
-    navigation.navigate('Product', { productId: product._id });
-  }
-
+export function ProductItem({ product, onNavigate }: ProductItemProps) {
   return (
-    <TouchableWithoutFeedback onPress={handleNavigate}>
+    <TouchableWithoutFeedback onPress={() => onNavigate(product._id)}>
       <View style={styles.container}>
         <Image
           resizeMode="cover"

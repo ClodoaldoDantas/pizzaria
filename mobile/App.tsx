@@ -11,6 +11,7 @@ import {
 } from '@expo-google-fonts/poppins';
 
 import { Routes } from './src/routes';
+import { OrdersProvider } from './src/contexts/OrdersContext';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,8 +27,10 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Routes />
-      <StatusBar style="light" />
+      <OrdersProvider>
+        <Routes />
+        <StatusBar style="light" />
+      </OrdersProvider>
     </NavigationContainer>
   );
 }
