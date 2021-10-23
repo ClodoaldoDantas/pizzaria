@@ -14,6 +14,7 @@ export const styles = StyleSheet.create({
     borderBottomLeftRadius: 8,
   },
   productInfo: {
+    flex: 1,
     paddingHorizontal: 16,
     paddingVertical: 10,
     backgroundColor: colors.gray_100,
@@ -28,7 +29,6 @@ export const styles = StyleSheet.create({
   description: {
     fontFamily: fonts.regular,
     fontSize: 12,
-    maxWidth: 180,
     marginBottom: 5,
   },
   productFooter: {

@@ -18,6 +18,9 @@ export function Orders() {
       <FlatList
         data={orders}
         keyExtractor={item => item._id}
+        contentContainerStyle={{
+          width: '100%',
+        }}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
           <OrderItem order={item} onNavigate={handleNavigate} />
