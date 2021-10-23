@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     color: colors.gray_500,
   },
-  quantity: {
+  text: {
     fontFamily: fonts.regular,
     fontSize: 14,
   },
