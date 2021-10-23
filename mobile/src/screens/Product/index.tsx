@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { api } from '../../services/api';
 import { ProductType } from '../../interfaces/Product';
 import { Currency } from '../../components/Currency';
 import { Button } from '../../components/Button';
 import { styles } from './styles';
+import { Container } from '../../components/Container';
 
 type Params = {
   productId: string;
@@ -50,7 +45,7 @@ export function Product() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <Container>
       <View style={styles.card}>
         <Image
           resizeMode="cover"
@@ -105,6 +100,6 @@ export function Product() {
 
         <Button title="Confirmar Pedido" onPress={addOrder} />
       </View>
-    </SafeAreaView>
+    </Container>
   );
 }

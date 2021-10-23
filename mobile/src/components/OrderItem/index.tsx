@@ -7,12 +7,12 @@ import { styles } from './styles';
 
 type OrderItemProps = {
   order: OrderType;
-  onNavigate: (productId: string) => void;
+  onNavigate: (orderId: string) => void;
 };
 
 export function OrderItem({ order, onNavigate }: OrderItemProps) {
   return (
-    <TouchableWithoutFeedback onPress={() => onNavigate(order.item._id)}>
+    <TouchableWithoutFeedback onPress={() => onNavigate(order._id)}>
       <View style={styles.container}>
         <Image
           resizeMode="cover"

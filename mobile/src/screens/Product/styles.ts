@@ -1,13 +1,8 @@
 import { StyleSheet } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { colors } from '../../theme/colors';
 import { fonts } from '../../theme/fonts';
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-  },
   image: {
     width: '100%',
     height: 180,
