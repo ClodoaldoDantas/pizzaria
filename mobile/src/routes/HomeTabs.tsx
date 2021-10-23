@@ -6,10 +6,16 @@ import { Home } from '../screens/Home';
 import { Orders } from '../screens/Orders';
 import { colors } from '../theme/colors';
 import { fonts } from '../theme/fonts';
+import { useOrders } from '../contexts/OrdersContext';
 
 const Tab = createBottomTabNavigator();
 
 export function HomeTabs() {
+  const { orders } = useOrders();
+  const ordersPendingSize = orders.filter(
+    order => order.status === 'PENDING'
+  ).length;
+
   return (
     <Tab.Navigator
       sceneContainerStyle={{
@@ -50,6 +56,7 @@ export function HomeTabs() {
         options={{
           title: 'Meus Pedidos',
           tabBarLabel: 'Pedidos',
+          tabBarBadge: ordersPendingSize > 0 ? ordersPendingSize : undefined,
           tabBarIcon: ({ size, color }) => (
             <Feather name="shopping-bag" size={size} color={color} />
           ),
