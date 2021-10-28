@@ -34,7 +34,7 @@ Mini e-commerce de uma pizzaria 😋
 - 📂 Compartilhamento de dados globais utilizando a [Context API](https://pt-br.reactjs.org/docs/context.html)
 - 💅 Layout feito utilizando [React Bootstrap](https://react-bootstrap.github.io/)
 - 📋 Validação de formulários com [React Hook Form](https://react-hook-form.com/get-started)
-- 📋 Integração com api em tempo real utilizando [Socket.IO](https://socket.io/)
+- 🌐 Integração com api em tempo real utilizando [Socket.IO](https://socket.io/)
 
 ## 🔥 Instalação
 
