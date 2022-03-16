@@ -1,6 +1,6 @@
 # Pizzas 🍕
 
-Mini e-commerce de uma pizzaria 😋
+Pequeno protótipo simulando o fluxo de pedidos em uma pizzaria 😋
 
 <p>
   <img src="./screenshots/photo-01.png" width="30%" />
