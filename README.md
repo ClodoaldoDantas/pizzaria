@@ -1,4 +1,4 @@
-# Pizzas 🍕
+# Pizzaria 👨‍🍳
 
 Pequeno protótipo simulando o fluxo de pedidos em uma pizzaria 😋
 
