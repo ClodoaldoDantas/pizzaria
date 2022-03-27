@@ -22,10 +22,6 @@ Pequeno protótipo simulando o fluxo de pedidos em uma pizzaria 😋
 - [Typescript](https://www.typescriptlang.org/)
 - [Axios](https://github.com/axios/axios)
 - [Sass](https://sass-lang.com/)
-- [Node](https://nodejs.org/en/)
-- [Express](https://expressjs.com/pt-br/)
-- [Mongoose](https://mongoosejs.com/)
-- [Socket.IO](https://socket.io/)
 - [React Native](https://reactnative.dev/)
 - [Expo](https://docs.expo.dev/)
 
@@ -36,16 +32,14 @@ Pequeno protótipo simulando o fluxo de pedidos em uma pizzaria 😋
 - 📋 Validação de formulários com [React Hook Form](https://react-hook-form.com/get-started)
 - 🌐 Integração com api em tempo real utilizando [Socket.IO](https://socket.io/)
 
+> Para acessar a api da aplicação, acesse o [repositório](https://github.com/ClodoaldoDantas/pizzaria-api)
+
 ## 🔥 Instalação
 
 ```bash
 # frontend
 $ yarn install
 $ yarn start
-
-# backend
-$ yarn install
-$ yarn dev
 
 # mobile
 $ yarn install
