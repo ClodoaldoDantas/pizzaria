@@ -17,7 +17,7 @@ export function Orders() {
       setOrders(response.data);
     });
 
-    const socket = io('http://localhost:3333');
+    const socket = io('https://pizzariaserver.herokuapp.com/');
 
     socket.on('newOrder', async data => {
       const newOrder: Order = data;
