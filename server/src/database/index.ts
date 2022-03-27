@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://localhost:27017/pizzasdb').then(() => {
+mongoose.connect(process.env.MONGO_URI as string).then(() => {
   console.log('📦 Banco de dados conectado');
 });
