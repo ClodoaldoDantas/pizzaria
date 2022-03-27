@@ -3,13 +3,13 @@
 Pequeno protótipo simulando o fluxo de pedidos em uma pizzaria 😋
 
 <p>
-  <img src="./screenshots/photo-01.png" width="30%" />
-  <img src="./screenshots/photo-02.png" width="30%" />
-  <img src="./screenshots/photo-03.png" width="30%" />
+  <img src="./web/design/photo-01.png" width="30%" />
+  <img src="./web/design/photo-02.png" width="30%" />
+  <img src="./web/design/photo-03.png" width="30%" />
 </p>
 
-![Screenshot 4](screenshots/photo-04.png)
-![Screenshot 5](screenshots/photo-05.png)
+![Screenshot 4](web/design/photo-04.png)
+![Screenshot 5](web/design/photo-05.png)
 
 ## 🚀 Tecnologias
 
