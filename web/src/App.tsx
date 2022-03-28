@@ -1,10 +1,10 @@
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Sidebar } from './components/Sidebar';
 import { Routes } from './routes';
 
 export function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="wrapper">
         <Sidebar />
 
@@ -12,6 +12,6 @@ export function App() {
           <Routes />
         </main>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
