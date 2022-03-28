@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/pizzaria/static/css/main.782dc3ec.chunk.css",
+    "main.js": "/pizzaria/static/js/main.6f4e2986.chunk.js",
+    "main.js.map": "/pizzaria/static/js/main.6f4e2986.chunk.js.map",
+    "runtime-main.js": "/pizzaria/static/js/runtime-main.2f4918e8.js",
+    "runtime-main.js.map": "/pizzaria/static/js/runtime-main.2f4918e8.js.map",
+    "static/js/2.492cb05b.chunk.js": "/pizzaria/static/js/2.492cb05b.chunk.js",
+    "static/js/2.492cb05b.chunk.js.map": "/pizzaria/static/js/2.492cb05b.chunk.js.map",
+    "index.html": "/pizzaria/index.html",
+    "static/css/main.782dc3ec.chunk.css.map": "/pizzaria/static/css/main.782dc3ec.chunk.css.map",
+    "static/js/2.492cb05b.chunk.js.LICENSE.txt": "/pizzaria/static/js/2.492cb05b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2f4918e8.js",
+    "static/js/2.492cb05b.chunk.js",
+    "static/css/main.782dc3ec.chunk.css",
+    "static/js/main.6f4e2986.chunk.js"
+  ]
+}
