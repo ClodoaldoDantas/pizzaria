@@ -8,7 +8,7 @@ import './styles.scss';
 const navItems = [
   {
     label: 'Produtos',
-    link: '/products',
+    link: '/',
     icon: <MdRestaurantMenu size={20} />,
   },
   {
@@ -35,7 +35,7 @@ export function SidebarNav() {
               label={navItem.label}
               link={navItem.link}
               icon={navItem.icon}
-              shouldMatchExactHref={navItem.label === 'Dashboard'}
+              shouldMatchExactHref={navItem.label === 'Produtos'}
             />
           </li>
         ))}
