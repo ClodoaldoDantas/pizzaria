@@ -36,7 +36,7 @@ export function AddProduct() {
 
   async function onSubmit(data: IFormInputs) {
     await api.post('pizzas', { ...data, active });
-    history.push('/products');
+    history.push('/');
 
     await Toast.fire({
       icon: 'success',
