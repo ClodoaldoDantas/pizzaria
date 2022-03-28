@@ -46,6 +46,12 @@ $ yarn install
 $ expo start
 ```
 
+## 💻 Demo
+
+- [Dashboard](https://clodoaldodantas.github.io/pizzaria/)
+
+> ⚠️ atenção: O aplicativo mobile ainda não está disponível para produção.
+
 ## 📝 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
