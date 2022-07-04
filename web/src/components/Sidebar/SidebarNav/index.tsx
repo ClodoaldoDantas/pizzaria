@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import { MdLocalPizza, MdRestaurantMenu } from 'react-icons/md';
-
+import { MdRestaurantMenu } from 'react-icons/md';
 import { FaClipboardList } from 'react-icons/fa';
 import { ActiveLink } from '../../ActiveLink';
+
 import './styles.scss';
+import { Logo } from '../../Logo';
 
 const navItems = [
   {
@@ -21,10 +21,7 @@ const navItems = [
 export function SidebarNav() {
   return (
     <>
-      <Link to="/" className="text-white text-decoration-none logo">
-        <MdLocalPizza size={28} />
-        <span className="fs-4 ms-1">Pizzaria</span>
-      </Link>
+      <Logo />
 
       <hr />
 
