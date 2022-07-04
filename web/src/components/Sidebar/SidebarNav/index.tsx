@@ -23,7 +23,7 @@ export function SidebarNav() {
     <>
       <Link to="/" className="text-white text-decoration-none logo">
         <MdLocalPizza size={28} />
-        <span className="fs-4 ms-1">Pizzas</span>
+        <span className="fs-4 ms-1">Pizzaria</span>
       </Link>
 
       <hr />
