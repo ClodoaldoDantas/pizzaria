@@ -22,7 +22,7 @@ export function OrdersProvider({ children }: OrdersProviderProps) {
       setOrders(response.data as OrderType[]);
     });
 
-    const socket = io('http://192.168.100.6:3333');
+    const socket = io('https://pizzariaserver.herokuapp.com/');
 
     socket.on('newOrder', data => {
       const newOrder: OrderType = data;
