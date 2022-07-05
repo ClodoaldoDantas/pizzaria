@@ -42,8 +42,7 @@ $ expo start
 ## 💻 Demo
 
 - [Dashboard](https://clodoaldodantas.github.io/pizzaria/)
-
-> ⚠️ atenção: O aplicativo mobile ainda não está disponível para produção.
+- [Aplicativo](https://expo.dev/@clodoaldodantas8/pizzaria)
 
 ## 📝 Licença
 
