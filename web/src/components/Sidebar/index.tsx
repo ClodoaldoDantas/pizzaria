@@ -1,4 +1,4 @@
-import useMedia from 'use-media';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { Drawer } from '../Drawer';
 import { Logo } from '../Logo';
 import { SidebarNav } from './SidebarNav';
@@ -6,7 +6,7 @@ import { SidebarNav } from './SidebarNav';
 import './styles.scss';
 
 export function Sidebar() {
-  const isTablet = useMedia({ maxWidth: 900 });
+  const isTablet = useMediaQuery('(max-width: 900px)');
 
   if (isTablet) {
     return <Drawer />;

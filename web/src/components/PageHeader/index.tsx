@@ -1,7 +1,8 @@
-import useMedia from 'use-media';
 import { Button } from 'react-bootstrap';
-import { useDrawer } from '../../contexts/DrawerContext';
 import { FiMenu } from 'react-icons/fi';
+
+import { useDrawer } from '../../contexts/DrawerContext';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 type PageHeaderProps = {
   title: string;
@@ -9,7 +10,7 @@ type PageHeaderProps = {
 
 export function PageHeader({ title }: PageHeaderProps) {
   const { openDrawer } = useDrawer();
-  const isTablet = useMedia({ maxWidth: 900 });
+  const isTablet = useMediaQuery('(max-width: 900px)');
 
   return (
     <>
