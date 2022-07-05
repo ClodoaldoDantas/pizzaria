@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/pizzaria/static/css/main.c34d8866.chunk.css",
-    "main.js": "/pizzaria/static/js/main.564fa524.chunk.js",
-    "main.js.map": "/pizzaria/static/js/main.564fa524.chunk.js.map",
+    "main.js": "/pizzaria/static/js/main.360ab589.chunk.js",
+    "main.js.map": "/pizzaria/static/js/main.360ab589.chunk.js.map",
     "runtime-main.js": "/pizzaria/static/js/runtime-main.2f4918e8.js",
     "runtime-main.js.map": "/pizzaria/static/js/runtime-main.2f4918e8.js.map",
-    "static/js/2.7954fa15.chunk.js": "/pizzaria/static/js/2.7954fa15.chunk.js",
-    "static/js/2.7954fa15.chunk.js.map": "/pizzaria/static/js/2.7954fa15.chunk.js.map",
+    "static/js/2.7ac5dc59.chunk.js": "/pizzaria/static/js/2.7ac5dc59.chunk.js",
+    "static/js/2.7ac5dc59.chunk.js.map": "/pizzaria/static/js/2.7ac5dc59.chunk.js.map",
     "index.html": "/pizzaria/index.html",
     "static/css/main.c34d8866.chunk.css.map": "/pizzaria/static/css/main.c34d8866.chunk.css.map",
-    "static/js/2.7954fa15.chunk.js.LICENSE.txt": "/pizzaria/static/js/2.7954fa15.chunk.js.LICENSE.txt"
+    "static/js/2.7ac5dc59.chunk.js.LICENSE.txt": "/pizzaria/static/js/2.7ac5dc59.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2f4918e8.js",
-    "static/js/2.7954fa15.chunk.js",
+    "static/js/2.7ac5dc59.chunk.js",
     "static/css/main.c34d8866.chunk.css",
-    "static/js/main.564fa524.chunk.js"
+    "static/js/main.360ab589.chunk.js"
   ]
 }
