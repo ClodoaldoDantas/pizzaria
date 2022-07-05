@@ -1,5 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { StatusBar } from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
+import * as Font from 'expo-font';
+
+import { StatusBar, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {
   Poppins_400Regular,
@@ -8,13 +11,8 @@ import {
   Poppins_700Bold,
 } from '@expo-google-fonts/poppins';
 
-import * as SplashScreen from 'expo-splash-screen';
-import * as Font from 'expo-font';
-
-import { Routes } from './src/routes';
 import { OrdersProvider } from './src/contexts/OrdersContext';
-import { colors } from './src/theme/colors';
-import { View } from 'react-native';
+import { Routes } from './src/routes';
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
