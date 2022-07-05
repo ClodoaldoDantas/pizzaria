@@ -1,7 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
-import AppLoading from 'expo-app-loading';
 import {
   useFonts,
   Poppins_400Regular,
@@ -12,6 +11,7 @@ import {
 
 import { Routes } from './src/routes';
 import { OrdersProvider } from './src/contexts/OrdersContext';
+import { colors } from './src/theme/colors';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,14 +22,14 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   }
 
   return (
     <NavigationContainer>
       <OrdersProvider>
         <Routes />
-        <StatusBar style="light" />
+        <StatusBar backgroundColor={colors.red_500} style="light" />
       </OrdersProvider>
     </NavigationContainer>
   );
