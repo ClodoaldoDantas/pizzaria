@@ -3,7 +3,6 @@ import { FaClipboardList } from 'react-icons/fa';
 import { ActiveLink } from '../../ActiveLink';
 
 import './styles.scss';
-import { Logo } from '../../Logo';
 
 const navItems = [
   {
@@ -21,10 +20,6 @@ const navItems = [
 export function SidebarNav() {
   return (
     <>
-      <Logo />
-
-      <hr />
-
       <ul className="nav nav-pills flex-column">
         {navItems.map(navItem => (
           <li key={navItem.label} className="nav-item">

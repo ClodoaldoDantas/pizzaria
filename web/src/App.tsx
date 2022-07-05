@@ -1,17 +1,20 @@
 import { HashRouter } from 'react-router-dom';
 import { Sidebar } from './components/Sidebar';
+import { DrawerProvider } from './contexts/DrawerContext';
 import { Routes } from './routes';
 
 export function App() {
   return (
     <HashRouter>
-      <div className="wrapper">
-        <Sidebar />
+      <DrawerProvider>
+        <div className="wrapper">
+          <Sidebar />
 
-        <main id="main-content" className="container-fluid">
-          <Routes />
-        </main>
-      </div>
+          <main id="main-content" className="container-fluid">
+            <Routes />
+          </main>
+        </div>
+      </DrawerProvider>
     </HashRouter>
   );
 }
