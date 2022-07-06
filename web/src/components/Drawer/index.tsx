@@ -1,5 +1,5 @@
 import { Offcanvas } from 'react-bootstrap';
-import { useDrawer } from '../../contexts/DrawerContext';
+import { useDrawer } from '../../hooks/useDrawer';
 import { Logo } from '../Logo';
 import { SidebarNav } from '../Sidebar/SidebarNav';
 

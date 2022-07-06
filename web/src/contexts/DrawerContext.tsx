@@ -1,11 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useState,
-  useEffect,
-} from 'react';
-
+import { createContext, ReactNode, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 interface DrawerProviderProps {
@@ -18,7 +11,7 @@ type DrawerContextData = {
   closeDrawer: () => void;
 };
 
-const DrawerContext = createContext({} as DrawerContextData);
+export const DrawerContext = createContext({} as DrawerContextData);
 
 export function DrawerProvider({ children }: DrawerProviderProps) {
   const location = useLocation();
@@ -37,5 +30,3 @@ export function DrawerProvider({ children }: DrawerProviderProps) {
     </DrawerContext.Provider>
   );
 }
-
-export const useDrawer = () => useContext(DrawerContext);

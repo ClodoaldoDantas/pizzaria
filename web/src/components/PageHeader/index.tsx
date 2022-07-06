@@ -1,7 +1,6 @@
 import { Button } from 'react-bootstrap';
 import { FiMenu } from 'react-icons/fi';
-
-import { useDrawer } from '../../contexts/DrawerContext';
+import { useDrawer } from '../../hooks/useDrawer';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 type PageHeaderProps = {
