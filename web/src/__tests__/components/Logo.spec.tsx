@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
+import { Logo } from '../../components/Logo';
 import { renderWithRouter } from '../../utils/testUtils';
-import { Logo } from '.';
 
 describe('Logo component', () => {
   it('renders correctly', () => {
