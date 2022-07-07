@@ -1,5 +1,6 @@
 import { Offcanvas } from 'react-bootstrap';
 import { useDrawer } from '../../hooks/useDrawer';
+
 import { Logo } from '../Logo';
 import { SidebarNav } from '../Sidebar/SidebarNav';
 
@@ -8,6 +9,7 @@ export function Drawer() {
 
   return (
     <Offcanvas
+      data-testid="drawer"
       className="bg-dark text-white"
       show={isOpen}
       onHide={closeDrawer}
