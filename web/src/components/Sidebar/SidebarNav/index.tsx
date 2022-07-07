@@ -13,32 +13,30 @@ export function SidebarNav() {
   const ordersLinkIsActive = pathname.includes('/orders');
 
   return (
-    <>
-      <ul className="nav nav-pills flex-column">
-        <li className="nav-item">
-          <Link
-            to="/"
-            className={cx('nav-link text-white', {
-              active: productLinkIsActive,
-            })}
-          >
-            <MdRestaurantMenu size={20} />
-            <span className="ms-2">Produtos</span>
-          </Link>
-        </li>
+    <ul data-testid="sidebar-nav" className="nav nav-pills flex-column">
+      <li className="nav-item">
+        <Link
+          to="/"
+          className={cx('nav-link text-white', {
+            active: productLinkIsActive,
+          })}
+        >
+          <MdRestaurantMenu size={20} />
+          <span className="ms-2">Produtos</span>
+        </Link>
+      </li>
 
-        <li className="nav-item">
-          <Link
-            to="/orders"
-            className={cx('nav-link text-white', {
-              active: ordersLinkIsActive,
-            })}
-          >
-            <FaClipboardList size={20} />
-            <span className="ms-2">Pedidos</span>
-          </Link>
-        </li>
-      </ul>
-    </>
+      <li className="nav-item">
+        <Link
+          to="/orders"
+          className={cx('nav-link text-white', {
+            active: ordersLinkIsActive,
+          })}
+        >
+          <FaClipboardList size={20} />
+          <span className="ms-2">Pedidos</span>
+        </Link>
+      </li>
+    </ul>
   );
 }
