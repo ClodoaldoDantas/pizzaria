@@ -13,7 +13,7 @@ export function Sidebar() {
   }
 
   return (
-    <div className="sidebar bg-dark text-white p-3">
+    <div data-testid="sidebar" className="sidebar bg-dark text-white p-3">
       <Logo />
       <hr />
       <SidebarNav />
