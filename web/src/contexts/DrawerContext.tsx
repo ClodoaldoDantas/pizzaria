@@ -1,9 +1,9 @@
 import { createContext, ReactNode, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-interface DrawerProviderProps {
+type DrawerProviderProps = {
   children: ReactNode;
-}
+};
 
 type DrawerContextData = {
   isOpen: boolean;

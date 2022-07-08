@@ -1,20 +1,19 @@
 import { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
+
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import { PageHeader } from '../../components/PageHeader';
-import { Product } from '../../interfaces/Product';
-import { api } from '../../services/api';
-import { Toast } from '../../utils/swal';
+import { useProducts } from '../../hooks/useProducts';
 
 type Params = {
   id: string;
 };
 
-type IFormInputs = {
+type IFormData = {
   image: string;
   name: string;
   price: number;
@@ -29,7 +28,7 @@ const schema = yup.object({
 });
 
 export function EditProduct() {
-  const history = useHistory();
+  const { products, updateProduct } = useProducts();
   const params = useParams<Params>();
   const [active, setActive] = useState(true);
   const {
@@ -37,31 +36,25 @@ export function EditProduct() {
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm<IFormInputs>({
+  } = useForm<IFormData>({
     resolver: yupResolver(schema),
   });
 
-  async function onSubmit(data: IFormInputs) {
-    await api.put(`/pizzas/${params.id}`, { ...data, active });
-    history.push('/');
-
-    await Toast.fire({
-      icon: 'success',
-      title: 'Produto editado com sucesso',
-    });
+  async function onSubmit(data: IFormData) {
+    await updateProduct(params.id, { ...data, active });
   }
 
   useEffect(() => {
-    api.get(`/pizzas/${params.id}`).then(response => {
-      const pizza: Product = response.data;
-      setValue('image', pizza.image);
-      setValue('name', pizza.name);
-      setValue('price', pizza.price);
-      setValue('description', pizza.description);
+    const product = products.find(product => product._id === params.id);
 
-      setActive(pizza.active);
-    });
-  }, [setValue, params.id]);
+    if (product) {
+      setValue('image', product.image);
+      setValue('name', product.name);
+      setValue('price', product.price);
+      setValue('description', product.description);
+      setActive(product.active);
+    }
+  }, [params.id, products, setValue]);
 
   return (
     <section id="page-products-add">

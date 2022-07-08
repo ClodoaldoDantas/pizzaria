@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import { PageHeader } from '../../components/PageHeader';
-import { api } from '../../services/api';
-import { useHistory } from 'react-router-dom';
-import { Toast } from '../../utils/swal';
+import { useProducts } from '../../hooks/useProducts';
 
-type IFormInputs = {
+type IFormData = {
   image: string;
   name: string;
   price: number;
@@ -24,24 +23,18 @@ const schema = yup.object({
 });
 
 export function AddProduct() {
-  const history = useHistory();
+  const { addProduct } = useProducts();
   const [active, setActive] = useState(true);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormInputs>({
+  } = useForm<IFormData>({
     resolver: yupResolver(schema),
   });
 
-  async function onSubmit(data: IFormInputs) {
-    await api.post('pizzas', { ...data, active });
-    history.push('/');
-
-    await Toast.fire({
-      icon: 'success',
-      title: 'Produto adicionado com sucesso',
-    });
+  async function onSubmit(data: IFormData) {
+    await addProduct({ ...data, active });
   }
 
   return (
