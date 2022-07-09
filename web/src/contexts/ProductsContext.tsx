@@ -2,7 +2,7 @@ import { createContext, ReactNode, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { Product } from '../interfaces/Product';
-import { ConfirmDialog, Toast } from '../utils/swal';
+import { Toast } from '../utils/swal';
 import { api } from '../services/api';
 
 type ProductsProviderProps = {
@@ -31,13 +31,13 @@ export function ProductsProvider({ children }: ProductsProviderProps) {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    api.get('pizzas').then(response => {
+    api.get('/pizzas').then(response => {
       setProducts(response.data);
     });
   }, []);
 
   async function addProduct(product: ProductFormData) {
-    const response = await api.post('pizzas', product);
+    const response = await api.post('/pizzas', product);
     const newProduct = response.data as Product;
 
     setProducts([...products, newProduct]);
@@ -51,14 +51,13 @@ export function ProductsProvider({ children }: ProductsProviderProps) {
 
   async function updateProduct(id: string, product: ProductFormData) {
     const response = await api.put(`/pizzas/${id}`, product);
-    const updatedProduct = response.data as Product;
+    const productData = response.data as Product;
 
-    setProducts(
-      products.map(product => {
-        if (product._id === id) return updatedProduct;
-        return product;
-      })
-    );
+    const updatedProducts = [...products];
+    const index = products.findIndex(product => product._id === id);
+
+    updatedProducts[index] = productData;
+    setProducts(updatedProducts);
 
     history.push('/');
 
@@ -69,19 +68,13 @@ export function ProductsProvider({ children }: ProductsProviderProps) {
   }
 
   async function removeProduct(id: string) {
-    const canDelete = await ConfirmDialog.fire({
-      text: 'Deseja realmente deletar o produto ?',
+    await api.delete(`/pizzas/${id}`);
+    setProducts(products.filter(product => product._id !== id));
+
+    await Toast.fire({
+      icon: 'success',
+      title: 'Produto removido com sucesso',
     });
-
-    if (canDelete.value) {
-      await api.delete(`/pizzas/${id}`);
-      setProducts(products.filter(product => product._id !== id));
-
-      await Toast.fire({
-        icon: 'success',
-        title: 'Produto removido com sucesso',
-      });
-    }
   }
 
   return (

@@ -6,6 +6,7 @@ import { MdEdit, MdDelete } from 'react-icons/md';
 import { Product } from '../../../interfaces/Product';
 import { useProducts } from '../../../hooks/useProducts';
 import './styles.scss';
+import { ConfirmDialog } from '../../../utils/swal';
 
 type ProductItemProps = {
   product: Product;
@@ -16,6 +17,16 @@ export function ProductItem({ product }: ProductItemProps) {
 
   const history = useHistory();
   const navigateToEditProduct = () => history.push(`/products/${product._id}`);
+
+  const handleDeleteProduct = async () => {
+    const canDelete = await ConfirmDialog.fire({
+      text: 'Deseja realmente deletar o produto ?',
+    });
+
+    if (canDelete.value) {
+      await removeProduct(product._id);
+    }
+  };
 
   return (
     <tr>
@@ -46,11 +57,7 @@ export function ProductItem({ product }: ProductItemProps) {
             <MdEdit size={18} />
           </Button>
 
-          <Button
-            onClick={() => removeProduct(product._id)}
-            variant="danger"
-            size="sm"
-          >
+          <Button onClick={handleDeleteProduct} variant="danger" size="sm">
             <MdDelete size={18} />
           </Button>
         </div>
