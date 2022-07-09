@@ -5,8 +5,9 @@ import { MdEdit, MdDelete } from 'react-icons/md';
 
 import { Product } from '../../../interfaces/Product';
 import { useProducts } from '../../../hooks/useProducts';
-import './styles.scss';
 import { ConfirmDialog } from '../../../utils/swal';
+
+import './styles.scss';
 
 type ProductItemProps = {
   product: Product;
@@ -29,7 +30,7 @@ export function ProductItem({ product }: ProductItemProps) {
   };
 
   return (
-    <tr>
+    <tr data-testid="product-item">
       <td className="product-image">
         <img src={product.image} alt={product.name} />
       </td>
@@ -53,11 +54,21 @@ export function ProductItem({ product }: ProductItemProps) {
       </td>
       <td>
         <div className="actions">
-          <Button onClick={navigateToEditProduct} variant="warning" size="sm">
+          <Button
+            onClick={navigateToEditProduct}
+            aria-label="editar produto"
+            variant="warning"
+            size="sm"
+          >
             <MdEdit size={18} />
           </Button>
 
-          <Button onClick={handleDeleteProduct} variant="danger" size="sm">
+          <Button
+            onClick={handleDeleteProduct}
+            aria-label="remover produto"
+            variant="danger"
+            size="sm"
+          >
             <MdDelete size={18} />
           </Button>
         </div>
