@@ -5,9 +5,6 @@ import { faker } from '@faker-js/faker';
 
 import { ProductItem } from '../../pages/Products/ProductItem';
 
-// import { ConfirmDialog } from '../../utils/swal';
-// import { useProducts } from '../../hooks/useProducts';
-
 const mockHistoryPush = jest.fn();
 
 jest.mock('react-router-dom', () => ({
@@ -16,10 +13,6 @@ jest.mock('react-router-dom', () => ({
     push: mockHistoryPush,
   }),
 }));
-
-// jest.mock('../../hooks/useProducts.ts');
-// const mockUseProducts = useProducts as jest.MockedFunction<typeof useProducts>;
-// const mockedRemoveProduct = jest.fn();
 
 type Params = {
   isActive: boolean;
@@ -34,12 +27,6 @@ const renderProductItem = ({ isActive }: Params) => {
     active: isActive,
     image: faker.image.food(),
   };
-
-  // mockUseProducts.mockImplementationOnce(() => {
-  //   return {
-  //     removeProduct: mockedRemoveProduct,
-  //   } as any;
-  // });
 
   const tbody = document.createElement('tbody');
 
@@ -76,11 +63,4 @@ describe('ProductItem component', () => {
     expect(mockHistoryPush).toHaveBeenCalled();
     expect(mockHistoryPush).toHaveBeenCalledWith(`/products/${product._id}`);
   });
-
-  // it('should call removeProduct() when button delete is clicked', () => {
-  //   const { product } = renderProductItem({ isActive: true });
-  //   const buttonDelete = screen.getByRole('button', {
-  //     name: /remover produto/i,
-  //   });
-  // });
 });

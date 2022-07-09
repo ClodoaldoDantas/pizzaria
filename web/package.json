@@ -47,6 +47,14 @@
       "import/no-anonymous-default-export": "off"
     }
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "<rootDir>/src/components/**/*.tsx",
+      "<rootDir>/src/pages/**/*.tsx",
+      "<rootDir>/src/hooks/**/*.ts",
+      "<rootDir>/src/contexts/**/*.tsx"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",

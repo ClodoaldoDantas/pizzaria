@@ -19,6 +19,7 @@ export function ProductItem({ product }: ProductItemProps) {
   const history = useHistory();
   const navigateToEditProduct = () => history.push(`/products/${product._id}`);
 
+  /* istanbul ignore next */
   const handleDeleteProduct = async () => {
     const canDelete = await ConfirmDialog.fire({
       text: 'Deseja realmente deletar o produto ?',

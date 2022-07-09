@@ -12,7 +12,7 @@ export function Products() {
   }
 
   return (
-    <section id="page-products">
+    <section data-testid="page-products" id="page-products">
       <PageHeader title="Produtos" />
 
       <Button onClick={navigateToAddProduct} className="mb-3">
