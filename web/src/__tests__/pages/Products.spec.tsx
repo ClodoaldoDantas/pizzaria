@@ -1,8 +1,8 @@
-import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { useProducts } from '../../hooks/useProducts';
+import { screen } from '@testing-library/react';
 import { Products } from '../../pages/Products';
 import { renderWithRouter, setupMatchMedia } from '../../utils/testUtils';
+import { ProductsContext } from '../../contexts/ProductsContext';
 
 const mockHistoryPush = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -12,18 +12,13 @@ jest.mock('react-router-dom', () => ({
   }),
 }));
 
-jest.mock('../../hooks/useProducts.ts');
-const mockUseProducts = useProducts as jest.MockedFunction<typeof useProducts>;
-
 const renderProductsPage = () => {
-  mockUseProducts.mockImplementationOnce(() => {
-    return {
-      products: [],
-    } as any;
-  });
-
   setupMatchMedia();
-  renderWithRouter(<Products />);
+  renderWithRouter(
+    <ProductsContext.Provider value={{ products: [] } as any}>
+      <Products />
+    </ProductsContext.Provider>
+  );
 };
 
 describe('Products page', () => {

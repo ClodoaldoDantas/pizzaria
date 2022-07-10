@@ -6,7 +6,7 @@ export function TableProducts() {
   const { products } = useProducts();
 
   return (
-    <Table striped bordered>
+    <Table data-testid="table-products" striped bordered>
       <thead>
         <tr>
           <th>Imagem</th>
